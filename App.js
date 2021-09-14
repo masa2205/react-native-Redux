@@ -1,18 +1,13 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import { Provider } from 'react-redux'; 
+import store from './store/' 
+import IncrementButton from './src/components/IncrementButton';
 
 export default App = () => {
+
   return(
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-    </View>
+      <Provider store={store}>
+        <IncrementButton />
+      </Provider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
