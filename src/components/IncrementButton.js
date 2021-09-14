@@ -1,10 +1,18 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux'; 
+import {Text, View, StyleSheet, Button} from 'react-native';
+import { plusOne, minusOne } from '../../store/actions/user';
 
-export default App = () => {
+export default IncrementButton = () => {
+
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
   return(
     <View style={styles.container}>
-      <Text>Hello World</Text>
+        <Text>カウンタ:{user}</Text>
+        <Button title="プラス" onPress={() => dispatch(plusOne())} />
+        <Button title="マイナス" onPress={() => dispatch(minusOne())} />
     </View>
   )
 }
